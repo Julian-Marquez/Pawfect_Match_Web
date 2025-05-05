@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart Animation</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <style>
+    .product-card {
+      position: relative;
+      display: inline-block;
+      margin: 20px;
+    }
+
+    .product-image {
+      width: 150px;
+      height: auto;
+    }
+
+    #cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .flying-image {
+      position: absolute;
+      width: 150px;
+      height: auto;
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<div id="cart-icon">🛒</div>
+
+<div class="product-card">
+  <img class="product-image" src="product1.jpg" alt="Product 1">
+  <button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img class="product-image" src="product2.jpg" alt="Product 2">
+  <button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<script src="js/animation.js"></script>
+</body>
+</html>
