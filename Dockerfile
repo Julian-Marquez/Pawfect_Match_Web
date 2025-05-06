@@ -1,5 +1,5 @@
 # Use a base image with Tomcat
-FROM tomcat:10.1
+FROM tomcat:10.1.19
 
 # Copy the WAR file into the appropriate location in the container
 COPY Pawfect_Match_Web.war /usr/local/tomcat/webapps/
