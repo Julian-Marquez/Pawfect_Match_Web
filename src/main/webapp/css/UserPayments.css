@@ -1,0 +1,189 @@
+        @charset "UTF-8";
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1d061a;
+        }
+      
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+
+        .container .box {
+        display: flex;
+            position: relative;
+            width: 320px;
+            height: 400px;
+            display: flex;
+           justify-content: center;
+            align-items: center;
+            margin: 40px 30px;
+            transition: 0.5s;
+        }
+
+        .container .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 50%;
+            height: 100%;
+            background: #fff;
+            border-radius: 8px;
+            transform: skewX(15deg);
+            transition: 0.5s;
+        }
+
+        .container .box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 50%;
+            height: 100%;
+            background: #fff;
+            border-radius: 8px;
+            transform: skewX(15deg);
+            transition: 0.5s;
+            filter: blur(30px);
+        }
+
+        .container .box:hover:before,
+        .container .box:hover:after {
+            transform: skewX(0deg);
+            left: 20px;
+            width: calc(100% - 90px);
+        }
+
+        .container .box:nth-child(1):before,
+        .container .box:nth-child(1):after {
+            background: linear-gradient(315deg, #ffbc00, #ff0058);
+        }
+
+        .container .box span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .container .box .content {
+            position: relative;
+            left: 0;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 1;
+            color: #fff;
+        }
+
+        .container .box .content h2 {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            width: 300px;
+            height: 180px;
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-top img {
+            margin-right: 10px;
+        }
+
+        .card-number,
+        .card-holder,
+        .expiry-date {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .add-payment-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+        
+
+.cool-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    position: relative; /* Necessary for ::after positioning */
+    z-index: 1; /* Keeps the button above the pseudo-element */
+    box-shadow: 0 4px 10px rgba(255, 118, 165, 0.4);
+    transition: all 0.3s ease;
+    overflow: hidden; /* Prevents ::after glow from spilling out */
+}
+
+.cool-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 118, 165, 0.6);
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+
+.cool-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(255, 118, 165, 0.4);
+}
+
+/* Glowing Animation */
+.cool-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgba(255, 118, 165, 0.5), rgba(255, 126, 179, 0.5));
+    filter: blur(15px);
+    opacity: 0;
+    z-index: -1; /* Ensures the glow stays behind the button */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cool-button:hover::after {
+    opacity: 1;
+    transform: scale(1.2); /* Subtle expansion for dynamic glow */
+}

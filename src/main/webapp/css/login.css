@@ -1,0 +1,53 @@
+/* Make the login section span the full width of the page */
+/* login.css */
+
+.login-section {
+	min-width: 900px;
+  width: 100%;/* Center the login form */
+}
+
+.card-body {
+	min-width: 400px;
+  width: 100%; /* Make the card take up full width */
+}
+
+.login_section .row {
+  margin: 0; /* Remove any default margin */
+}
+
+.login_section .col-md-6 {
+  max-width: 500px; /* Set max width for the login box */
+  width: 100%; /* Allow full width up to max width */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Optional: Add padding around form elements */
+.input_box {
+  padding: 10px 0;
+}
+
+input[type="text"], input[type="password"] {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Style for the "forgot password" and "create account" */
+.btn-box a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.create_account a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Make the form more responsive */
+@media (max-width: 767px) {
+  .login_section .col-md-6 {
+    width: 100%; /* Full width on smaller screens */
+    max-width: none;  /* Remove max-width on smaller screens */
+  }
+}

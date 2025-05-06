@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.gradient-button {
+  display: block;
+  margin: 10px auto;
+  height: 2.5rem;
+  width: 8rem;
+  background: transparent linear-gradient(to top left, rgba(249,208,129,.2) 0%, rgba(227,2,62,.2) 40%, rgba(49,128,135,.2) 100%);
+  border: 5px solid transparent;
+  border-image-source: linear-gradient(to top left, rgba(249,208,129,1) 0%, rgba(227,2,62,1) 40%, rgba(49,128,135,1) 100%);
+  border-image-slice: 1;
+  transition: transform .25s;
+  letter-spacing: .2rem;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: auto;
+  font-weight: 300;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #333;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent linear-gradient(to bottom left, rgba(249,208,129,.25) 10%, rgba(227,2,62,.25) 30%, rgba(49,128,135,.25) 90%);
+    border-image-source: linear-gradient(to bottom left, rgba(249,208,129,1) 10%, rgba(227,2,62,1) 30%, rgba(49,128,135,1) 90%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: -1;
+  }
+
+.gradient-button::after {
+    @include buttonLayer;
+   
+  	background: transparent linear-gradient(to bottom left, rgba(249,208,129,.25) 10%, rgba(227,2,62,.25) 30%, rgba(49,128,135,.25) 90%);
+    border-image-source: linear-gradient(to bottom left, rgba(249,208,129,1) 10%, rgba(227,2,62,1) 30%, rgba(49,128,135,1) 90%);
+    transition: opacity 1s;
+  }
+
+  &:active {
+    transform: scale(.96);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    @include buttonLayer;
+    z-index: 0;
+    border-image-source: linear-gradient(to bottom left, rgba(249,208,129,1) 20%, rgba(227,2,62,1) 40%, rgba(49,128,135,1) 70%);
+    transition: opacity .5s;
+  }
+  .gradient-button:hover {
+  transform: scale(1.05);
+  border-image-source: linear-gradient(
+    to top right,
+    rgba(249, 208, 129, 1) 0%,
+    rgba(227, 2, 62, 1) 50%,
+    rgba(49, 128, 135, 1) 100%
+  );
+}
+
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+}
