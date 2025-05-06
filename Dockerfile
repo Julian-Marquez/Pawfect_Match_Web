@@ -1,14 +1,11 @@
-# Use a base image with Tomcat
 FROM tomcat:10.1
 
-# Copy the WAR file into the appropriate location in the container
+# Copy WAR file into webapps
 COPY Pawfect_Match_Web.war /usr/local/tomcat/webapps/
 
-# Set up environment variables or other configurations if needed
-ENV JAVA_OPTS="-Xmx256m -Xms256m"
+# Add custom startup script
+COPY start.sh /usr/local/tomcat/bin/
+RUN chmod +x /usr/local/tomcat/bin/start.sh
 
-# Expose the port that Tomcat runs on
-EXPOSE 8080
-
-# Command to start Tomcat
-CMD ["catalina.sh", "run"]
+# Use custom startup script
+CMD ["/usr/local/tomcat/bin/start.sh"]
