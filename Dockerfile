@@ -8,4 +8,4 @@ COPY start.sh /usr/local/tomcat/bin/
 RUN chmod +x /usr/local/tomcat/bin/start.sh
 
 # Use custom startup script
-CMD ["/usr/local/tomcat/bin/start.sh"]
+CMD ["catalina.sh", "run"]
