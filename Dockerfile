@@ -1,8 +1,8 @@
 # Use a base image with Tomcat
-FROM tomcat:10.1.19
+FROM tomcat:10.1
 
 # Copy the WAR file into the appropriate location in the container
-COPY Pawfect_Match_Web.war /usr/local/tomcat/webapps/
+COPY Web_Pawfect_Match.war /usr/local/tomcat/webapps/
 
 # Set up environment variables or other configurations if needed
 ENV JAVA_OPTS="-Xmx256m -Xms256m"
